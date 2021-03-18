@@ -6,6 +6,7 @@ import MathChar from '../MathChar';
 
 test('геттер возвращает корректное значение, если coefAttack < 0', () => {
   const busido = new Daemon('Busido');
+  busido.coefAttack = -20;
   busido.distance = 3;
   busido.druggy = false;
   expect(busido.attack).toBe(0);
@@ -37,5 +38,5 @@ test('геттер возвращает корректное значение, �
   testMagician.coefAttack = 200;
   testMagician.distance = 2;
   testMagician.stoned = true;
-  expect(testMagician.attack).toBe(185);
+  expect(testMagician.attack).toBe(175);// ошибка исправлена
 });
