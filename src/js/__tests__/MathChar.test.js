@@ -31,3 +31,11 @@ test('геттер возвращает корректное значение, �
   busido.stoned = true;
   expect(busido.stoned).toBeTruthy();
 });
+
+test('геттер возвращает корректное значение, если coefAttack > 0 и применен druggy', () => {
+  const testMagician = new Magician('Gandalf');
+  testMagician.coefAttack = 200;
+  testMagician.distance = 2;
+  testMagician.stoned = true;
+  expect(testMagician.attack).toBe(185);
+});

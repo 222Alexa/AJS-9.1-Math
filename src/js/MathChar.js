@@ -16,12 +16,14 @@ export default class MathChar extends Character {
   }
 
   get attack() {
+    let totalAttack = this.coefAttack - (this.distance - 1) * 10;
+
     if (this.stoned) {
-      const totalAttack = this.coefAttack - (this.distance - 1) * 10 - Math.log2(this.distance) * 5;
-      return totalAttack > 0 ? Math.round(totalAttack) : 0;
+      totalAttack -= Math.log2(this.distance) * 5;
     }
-    const cleanfAttack = this.coefAttack - (this.distance - 1) * 10;
-    return cleanfAttack > 0 ? Math.round(cleanfAttack) : 0;
+
+    return totalAttack > 0 ? Math.round(totalAttack) : 0;
+      
   }
 
   set attack(value) {
